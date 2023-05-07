@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crunchub Planning Page</title>
+	<style>
+		body {
+			background-color: #192841;
+			color: cornflowerblue;
+			font-family: Arial, sans-serif;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			margin: 0;
+		}
+
+		.bubble {
+			background-color: #61dafb;
+			color: black;
+			border: none;
+			border-radius: 50%;
+			width: 150px;
+			height: 150px;
+			margin: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.bubble:hover {
+			transform: scale(1.1);
+		}
+
+		.bubble:focus-within {
+			outline: none;
+			box-shadow: 0 0 0 3px #61dafb;
+		}
+
+		.bubble .title {
+			font-size: 1.2em;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.bubble input[type="text"] {
+			width: 80%;
+			padding: 5px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+		}
+
+		.bubble textarea {
+			width: 80%;
+			height: 50%;
+			padding: 5px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Planning Page</h1>
+
+	<button id="add-button">+</button>
+
+	<div id="bubble-container">
+		
+	</div>
+
+	<script>
+		const addButton = document.getElementById('add-button');
+		const bubbleContainer = document.getElementById('bubble-container');
+
+		addButton.addEventListener('click', addBubble);
+
+		function addBubble() {
+			const bubble = document.createElement('div');
+			bubble.classList.add('bubble');
+
+			const titleInput = document.createElement('input');
+			titleInput.type = 'text';
+			titleInput.placeholder = 'Title';
+
+			const contentInput = document.createElement('textarea');
+			contentInput.placeholder = 'Plan...';
+
+			bubble.appendChild(titleInput);
+			bubble.appendChild(contentInput);
+
+			bubbleContainer.appendChild(bubble);
+		}
+	</script>
+</body>
+</html>
